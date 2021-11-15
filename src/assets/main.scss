@@ -1,0 +1,74 @@
+@import "./scss/_colors";
+@import "./scss/_fonts";
+
+body {
+  background: #1a1a3d;
+  overflow-y: hidden;
+
+  section {
+    &.view-content {
+      padding-top: 20px;
+      max-width: 700px;
+      height: 100%;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .height-content {
+      height: 100vh;
+      overflow: overlay;
+    }
+    h1 {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 44px;
+      /* identical to box height */
+
+      color: $white;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ffffff00;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #37305a87;
+    border-radius: 10px;
+  }
+
+  .ripple {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    position: absolute;
+    opacity: 1;
+  }
+  .ripple-effect {
+    animation: ripple 0.4s linear;
+  }
+
+  @keyframes ripple {
+    100% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  @media screen and (max-height: 800px) {
+    .height-content {
+      height: auto;
+      overflow: hidden;
+    }
+  }
+}
