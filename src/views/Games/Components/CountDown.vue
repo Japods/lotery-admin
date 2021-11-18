@@ -1,10 +1,10 @@
 <template>
-  <div class="gold-container" align="center">
+  <div class="gold-container"  align="center">
     <div class="title-container relative">
       Sorteo Activo <br />
       <span>{{ game_info.name }}</span>
     </div>
-    <countdown v-if="getTimeLap" :time="getTimeLap" :interval="100" tag="p">
+    <countdown  v-if="getTimeLap" :time="getTimeLap" :interval="100" tag="p">
       <template slot-scope="props">
         <div class="counter flex px-5" align="center">
           <div class="countdown flex-column" v-if="props.days >= 1">
@@ -27,9 +27,9 @@
       </template>
     </countdown>
     <Button
-      @action="openNewTicket()"
       class="mt-3"
       :btn="'take-button'"
+      @action="$emit('action')"
       :text="'Cerrar Sorteo y escoger Ticket Ganador'"
     ></Button>
   </div>

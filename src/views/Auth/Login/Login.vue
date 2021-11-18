@@ -58,9 +58,16 @@ export default {
         email: this.name,
         password: this.password,
       };
-      this.$store.dispatch("auth/LOGIN_TO", user).then(() => {
-        this.showNotification("Bienvenido a Admin Lotery");
-        this.$router.push({ name: "Transacciones" });
+      this.$store.dispatch("auth/LOGIN_TO", user).then((response) => {
+        console.log("user", response);
+
+        if (response.data.user.admin) {
+          this.showNotification("Bienvenido a Admin Lotery");
+          this.$router.push({ name: "Transacciones" });
+        } else {
+          this.showNotification("No eres un usuario administrativo");
+          return;
+        }
       });
     },
   },

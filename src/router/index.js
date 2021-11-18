@@ -23,7 +23,7 @@ const routes = [
     ],
   },
   {
-    path: "/",
+    path: "/admin",
     component: () => import("@/layouts/Auth.vue"),
     children: [
       {
@@ -31,12 +31,12 @@ const routes = [
         name: "Login",
         component: () => import("@/views/Auth/Login/Login.vue"),
       },
-      {
-        path: "/landing",
-        name: "Landing",
-        component: () => import("@/views/Landing/Landing.vue"),
-      },
     ],
+  },
+  {
+    path: "/",
+    name: "Landing",
+    component: () => import("@/views/Landing/Landing.vue"),
   },
 ];
 

@@ -13,6 +13,7 @@
           ></MinusSquareIcon>
           <UsersIcon v-if="element.title === 'Usuarios'"></UsersIcon>
           <LifeBuoyIcon v-if="element.title === 'Games'"></LifeBuoyIcon>
+          <LogOutIcon v-if="element.title === 'Salir'"></LogOutIcon>
         </div>
         <span class="menu-title mt-2 cursor-pointer">{{ element.title }}</span>
       </div>
@@ -26,16 +27,24 @@
 </template>
 
 <script>
-import { MinusSquareIcon, UsersIcon, LifeBuoyIcon } from "vue-feather-icons";
+import {
+  MinusSquareIcon,
+  UsersIcon,
+  LifeBuoyIcon,
+  LogOutIcon,
+} from "vue-feather-icons";
 import Contest from "@/views/Contest/Contest.vue";
+import showNotification from "@/mixins/Notification";
 
 export default {
   components: {
     MinusSquareIcon,
     UsersIcon,
     LifeBuoyIcon,
+    LogOutIcon,
     Contest,
   },
+  mixins: [showNotification],
   data() {
     return {
       menu: [
@@ -45,24 +54,28 @@ export default {
           name: "Transacciones",
         },
         {
-          href: "/users",
-          title: "Usuarios",
-          name: "",
-        },
-        {
           href: "/games",
           title: "Games",
           name: "Games",
+        },
+        {
+          href: "/",
+          title: "Salir",
+          name: "Login",
         },
       ],
     };
   },
   methods: {
     goToRoute(value) {
-      console.log("Route", this.$route.name);
       if (this.$route.name === value.name) {
         return;
       }
+
+      if (value.name === "Login") {
+        this.showNotification("Sesion cerrada");
+      }
+
       this.$router.push({ name: value.name });
     },
   },

@@ -83,6 +83,19 @@ const GET_GAME_STATISTIC = (context, payload) => {
   });
 };
 
+const SET_WINNER = (context, payload) => {
+  return new Promise((resolve, reject) => {
+    gamesAPI
+      .setWinner(payload)
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
 export default {
   GET_GAME,
   GET_TICKETS_GAME,
@@ -90,4 +103,5 @@ export default {
   GET_GAME_HISTORY,
   GET_GAME_POOL,
   GET_GAME_STATISTIC,
+  SET_WINNER,
 };
