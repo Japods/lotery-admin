@@ -13,7 +13,11 @@
       </div>
       <div class="w-full lg:w-3/6">
         <span class="title-awards">Que esperas para ganar?</span> <br />
-        <Button class="mt-10" :text="'Registrate ahora'"></Button>
+        <Button
+          @action="goToApp()"
+          class="mt-10"
+          :text="'Registrate ahora'"
+        ></Button>
       </div>
     </div>
   </div>
@@ -26,6 +30,11 @@ export default {
   },
   data: function () {
     return {};
+  },
+  methods: {
+    goToApp() {
+      window.open("https://app.sevenplay.io", "_blank");
+    },
   },
 };
 </script>
@@ -45,6 +54,13 @@ export default {
   height: 25 0px;
   padding-top: 20px;
   padding-bottom: 30px;
+
+  @media screen and (max-width: 750px) {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .title-awards {

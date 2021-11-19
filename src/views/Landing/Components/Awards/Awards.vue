@@ -79,9 +79,7 @@ export default {
 
 .gold-container {
   background: #201a57;
-  border-radius: 8px;
   width: 100%;
-  height: 25 0px;
   padding-top: 20px;
   padding-bottom: 30px;
 }

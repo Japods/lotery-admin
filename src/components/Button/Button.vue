@@ -43,6 +43,7 @@ button {
   font-weight: 500;
   position: relative;
   transition: all 0.3s;
+  min-width: 120px;
   overflow: hidden;
 }
 

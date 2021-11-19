@@ -1,5 +1,5 @@
 <template>
-  <div class="counter-container flex" id="counter" align="center">
+  <div class="counter-container flex py-12" id="counter" align="center">
     <div class="first-image relative w-1/3 hidden lg:block">
       <img src="@/assets/images/Landing/coin.png" alt="" />
     </div>
@@ -26,7 +26,9 @@
           </div>
         </template>
       </countdown>
-      <div class="participate mt-10 cursor-pointer">Participar</div>
+      <div class="participate mt-10 cursor-pointer" @click="goToApp()">
+        Participar
+      </div>
     </div>
     <div class="second-image relative w-1/3 hidden lg:block">
       <img src="@/assets/images/Landing/image-lotery.png" alt="" />
@@ -49,6 +51,11 @@ export default {
   mounted() {
     this.$store.dispatch("games/GET_GAME");
   },
+  methods: {
+    goToApp() {
+      window.open("https://app.sevenplay.io", "_blank");
+    },
+  },
 };
 </script>
 
@@ -60,7 +67,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 20px;
 }
 
 .countdown {

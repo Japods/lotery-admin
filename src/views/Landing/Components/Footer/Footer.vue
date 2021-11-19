@@ -1,12 +1,11 @@
 <template>
   <div class="gold-container">
-    <div class="view-content flex home-content no-border w-1/4">
+    <div class="view-content flex home-content no-border w-1/4 pt-6">
       <IconButton class="mx-1" :dark="true">
         <facebook-icon
           slot="icon"
           size="1.5x"
           class="custom-class cursor-pointer"
-          @click="goRss('https://www.facebook.com/Somosbdve')"
         ></facebook-icon>
       </IconButton>
       <IconButton class="mx-1" :dark="true">
@@ -14,7 +13,6 @@
           slot="icon"
           size="1.5x"
           class="custom-class cursor-pointer"
-          @click="goRss('https://twitter.com/somosbdve')"
         ></twitter-icon>
       </IconButton>
       <IconButton class="mx-1" :dark="true">
@@ -22,7 +20,6 @@
           slot="icon"
           size="1.5x"
           class="custom-class cursor-pointer"
-          @click="goRss('https://www.instagram.com/somosbdve/')"
         ></instagram-icon>
       </IconButton>
     </div>
@@ -31,7 +28,7 @@
       align="center"
     >
       <div class="cursor-pointer mt-10">
-        © 2021. LOTERYSEVENS | Todos los derechos reservados
+        © 2021. SEVENPLAY | Todos los derechos reservados
       </div>
       <div class="cursor-pointer mt-10">Documentación legal</div>
       <div class="cursor-pointer mt-10">Política de privacidad</div>

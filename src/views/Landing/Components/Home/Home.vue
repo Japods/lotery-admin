@@ -7,11 +7,12 @@
       justify-between
       items-center
       home-content
+      mb-20
     "
     align="center"
     id="home"
   >
-    <div class="left w-3/6 hidden lg:block" align="center">
+    <div class="left w-3/6 hidden lg:block mb-16" align="center">
       <img
         src="@/assets/images/Landing/seven_play_big.png"
         width="582"
@@ -22,15 +23,26 @@
       <br />
       <Button class="mt-10" :text="'Registrate ahora'"></Button>
     </div>
-    <div class="right w-3/6 relative hidden lg:block">
+    <div
+      class="
+        right
+        w-3/6
+        relative
+        hidden
+        lg:flex
+        items-center
+        justify-center
+        h-full
+      "
+    >
       <img
         src="@/assets/images/Landing/background.png"
-        class="mb-5 absolute seven-image"
+        class="absolute seven-image"
         alt=""
       />
       <img
         src="@/assets/images/Landing/phone_image.png"
-        class="mb-5 relative"
+        class="relative"
         alt=""
       />
     </div>
@@ -63,8 +75,11 @@ export default {
 
 <style lang="scss" scoped>
 .seven-image {
-  top: -120px;
   right: 50px;
+  height: calc(100vh - 150px);
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
 }
 
 .title-landing {
@@ -74,6 +89,6 @@ export default {
 }
 
 .home-content {
-  height: 100vh !important;
+  height: calc(100vh - 70px) !important;
 }
 </style>

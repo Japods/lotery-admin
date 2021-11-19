@@ -1,10 +1,10 @@
 <template>
   <div
-    class="view-content flex flex-col home-content my-12"
+    class="view-content flex flex-col home-content mb-12 pt-24"
     id="howToPlay"
     align="center"
   >
-    <div class="title-landing hidden lg:block">¿ Como jugar ?</div>
+    <div class="title-landing hidden lg:block mb-16">¿ Como jugar ?</div>
     <div class="items hidden lg:flex mt-10">
       <div class="w-1/2 flex container-text" align="left">
         <div class="ball">1</div>
@@ -131,13 +131,13 @@ export default {
 .home-content {
   height: auto !important;
   max-width: 1200px;
+  min-height: 100vh;
 }
 
 .items {
   align-items: center;
+  height: 60vh;
   justify-content: center;
-  margin-top: 250px;
-  margin-bottom: 250px;
 }
 
 .title-landing {

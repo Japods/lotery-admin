@@ -1,8 +1,8 @@
 <template>
-  <div class="view-content lg:pt-10 p-0">
+  <div class="view-content lg:pt-3 p-0 relative">
     <div class="nav-wrapper hidden lg:flex justify-between items-center">
       <div class="image">
-        <img src="@/assets/images/Landing/seven_play.png" class="mb-5" alt="" />
+        <img src="@/assets/images/Landing/seven_play.png" alt="" />
       </div>
       <div class="menu flex">
         <div class="cursor-pointer" @click="goToScroll('home')">
@@ -13,7 +13,7 @@
         </div>
         <div class="cursor-pointer" @click="goToScroll('awards')">Premios</div>
         <div class="cursor-pointer" @click="goToScroll('play')">
-          <Button class="w-16" :text="'Jugar'"></Button>
+          <Button :text="'Jugar'"></Button>
         </div>
       </div>
     </div>
@@ -31,7 +31,15 @@
     <!-- MOBILE MENU -->
     <div
       v-if="open"
-      class="flex flex-col lg:hidden flex absolute menu background-gold"
+      class="
+        flex flex-col
+        lg:hidden
+        flex
+        menu
+        background-gold
+        min-w-full
+        mobile
+      "
     >
       <div
         class="flex flex-col w-full"
@@ -104,12 +112,18 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 70%;
 }
 
 .menu-mobile {
   background: $gold-gradient;
   height: 50px;
+}
+
+.mobile {
+  position: absolute;
+  top: 48px;
+  z-index: 999;
 }
 
 .background-gold {
