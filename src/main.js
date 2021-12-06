@@ -17,12 +17,7 @@ Vue.component(VueCountdown.name, VueCountdown);
 Vue.use(VueCarousel)
 
 Vue.config.productionTip = false;
-
-if (process.env.VUE_APP_AMBIENT === "production") {
-  Vue.axios.defaults.baseURL = process.env.VUE_APP_URL_PROD;
-} else {
-  Vue.axios.defaults.baseURL = process.env.VUE_APP_URL_TESTING;
-}
+Vue.axios.defaults.baseURL = process.env.VUE_APP_URL;
 
 Vue.directive("ripple", {
   // When the bound element is inserted into the DOM...
