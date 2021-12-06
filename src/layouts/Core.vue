@@ -13,6 +13,7 @@
           ></MinusSquareIcon>
           <UsersIcon v-if="element.title === 'Usuarios'"></UsersIcon>
           <LifeBuoyIcon v-if="element.title === 'Games'"></LifeBuoyIcon>
+          <AwardIcon v-if="element.title === 'Reward'"></AwardIcon>
           <LogOutIcon v-if="element.title === 'Salir'"></LogOutIcon>
         </div>
         <span class="menu-title mt-2 cursor-pointer">{{ element.title }}</span>
@@ -32,6 +33,7 @@ import {
   UsersIcon,
   LifeBuoyIcon,
   LogOutIcon,
+  AwardIcon 
 } from "vue-feather-icons";
 import Contest from "@/views/Contest/Contest.vue";
 import showNotification from "@/mixins/Notification";
@@ -43,6 +45,7 @@ export default {
     LifeBuoyIcon,
     LogOutIcon,
     Contest,
+    AwardIcon
   },
   mixins: [showNotification],
   data() {
@@ -57,6 +60,11 @@ export default {
           href: "/games",
           title: "Games",
           name: "Games",
+        },
+        {
+          href: "/reward",
+          title: "Reward",
+          name: "Reward",
         },
         {
           href: "/",
