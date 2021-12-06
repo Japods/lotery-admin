@@ -1,6 +1,8 @@
 import Vue from "vue";
 const getTransactions = (template) => {
-  const token = template ? template.token : "";
+  const token = template.token;
+
+  console.log('Template', template.token)
 
   const config = {
     headers: {
@@ -13,9 +15,12 @@ const getTransactions = (template) => {
     type: template.type,
   };
 
+
+  console.log('Config', config)
+
   return new Promise((resolve, reject) => {
     Vue.axios
-      .get("admin/transactions", { params }, config)
+      .get("admin/transactions", { params, headers: config.headers })
       .then((data) => {
         resolve(data.data);
       })

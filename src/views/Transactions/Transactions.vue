@@ -218,7 +218,7 @@ export default {
     ...mapGetters("transactions", ["GET_TRANSACTIONS"]),
   },
   mounted() {
-    console.log("Transact", this.GET_TRANSACTIONS);
+    console.log("Transact", this.$store.state.auth.token);
     this.getTransactions();
   },
   methods: {
