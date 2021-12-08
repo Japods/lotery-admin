@@ -17,8 +17,13 @@
       <Step2
         v-if="step === 1 && !loading"
         @createTransaction="createTransaction"
+        @goBack="step = 0"
       ></Step2>
-      <Step3 v-if="step === 2 && !loading"></Step3>
+      <Step3
+        @transactCompleted="transactCompleted"
+        @goBack="step = 0"
+        v-if="step === 2 && !loading"
+      ></Step3>
     </div>
   </div>
 </template>
@@ -47,8 +52,14 @@ export default {
       number_6: "",
       number_7: "",
       seven: [],
-      step: 2,
+      step: 0,
       loading: false,
+      email: "",
+      name: "",
+      bank: "",
+      phone_number: "",
+      method_selected: 2,
+      userinfo: {},
       template: {},
     };
   },
@@ -86,6 +97,9 @@ export default {
     },
     createTransaction() {
       this.step = 2;
+    },
+    transactCompleted() {
+      this.step = 0;
     },
   },
   watch: {

@@ -49,6 +49,13 @@
         :text="'Crear transaccion de retiro'"
         @action="createTransaction"
       ></Button>
+      <div
+        class="mt-2 white w-full cursor-pointer"
+        @click="$emit('goBack')"
+        align="center"
+      >
+        Volver
+      </div>
     </div>
   </div>
 </template>
@@ -86,6 +93,9 @@ export default {
   methods: {
     createTransaction() {
       this.$emit("createTransaction");
+    },
+    theFormat(number) {
+      return number.toFixed(2);
     },
   },
 };

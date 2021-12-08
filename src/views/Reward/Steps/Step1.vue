@@ -152,6 +152,8 @@ export default {
       };
 
       this.template = autorization;
+      this.$store.commit("rewards/SET_IDENTIFICATION", this.indetification);
+
       this.$emit("changeStep", this.template);
     },
   },

@@ -34,6 +34,9 @@ export default {
       this.$emit("keyEnter");
     },
   },
+  mounted() {
+    this.content = this.value;
+  },
   watch: {
     value() {
       this.content = this.value;
