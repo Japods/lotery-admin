@@ -8,6 +8,7 @@ import "./assets/style.css";
 import VueToast from "vue-toast-notification";
 import "vue-toast-notification/dist/theme-sugar.css";
 import VueCountdown from "@chenfengyuan/vue-countdown";
+import VueNumber from "vue-number-animation";
 import VueCarousel from "vue-carousel";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -17,6 +18,7 @@ Vue.use(VueToast);
 Vue.component(VueCountdown.name, VueCountdown);
 Vue.use(VueCarousel);
 Vue.component("Spinner", Spinner);
+Vue.use(VueNumber);
 
 Vue.config.productionTip = false;
 Vue.axios.defaults.baseURL = process.env.VUE_APP_URL;

@@ -14,17 +14,26 @@
         @loadingFalse="loading = false"
         v-if="step === 0 && !loading"
       ></Step1>
+      <Step2
+        v-if="step === 1 && !loading"
+        @createTransaction="createTransaction"
+      ></Step2>
+      <Step3 v-if="step === 2 && !loading"></Step3>
     </div>
   </div>
 </template>
 
 <script>
 import Step1 from "./Steps/Step1.vue";
+import Step2 from "./Steps/Step2.vue";
+import Step3 from "./Steps/Step3.vue";
 import showNotification from "@/mixins/Notification";
 
 export default {
   components: {
     Step1,
+    Step2,
+    Step3,
   },
   mixins: [showNotification],
   data() {
@@ -38,7 +47,7 @@ export default {
       number_6: "",
       number_7: "",
       seven: [],
-      step: 0,
+      step: 2,
       loading: false,
       template: {},
     };
@@ -50,10 +59,10 @@ export default {
           return "Paso 1 : Verifica con la identificador del jugador y un ticket comprado  Glas recompensas del juego pasado";
 
         case 1:
-          return "Paso 2 : Genera una transaccion de retiro con los mismos datos de identificacion del usuario ganador";
+          return "Paso 2 : Verifica si el jugador Gano y con que Tickets Gano";
 
         default:
-          return "Paso 2 : Genera una transaccion de retiro con los mismos datos de identificacion del usuario ganador";
+          return "Paso 3 : Crea una transaccion de retiro para el usuario Ganador";
       }
     },
   },
@@ -62,18 +71,21 @@ export default {
       console.log("Epa", template);
       this.loading = true;
       this.template = template;
-      setTimeout(function () {
-        console.log("Epa", template);
-        this.$store
-          .dispatch("rewards/VERIFY_REWARD", this.template)
-          .then(() => {
-            this.showNotification("Recompensas verificadas");
-            this.loading = false;
-          })
-          .catch(() => {
-            this.loading = false;
-          });
-      }, 1500);
+
+      console.log("Epa", template);
+      this.$store
+        .dispatch("rewards/VERIFY_REWARD", this.template)
+        .then(() => {
+          this.showNotification("Recompensas verificadas");
+          this.loading = false;
+          this.step = 1;
+        })
+        .catch(() => {
+          this.loading = false;
+        });
+    },
+    createTransaction() {
+      this.step = 2;
     },
   },
   watch: {

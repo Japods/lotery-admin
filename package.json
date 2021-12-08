@@ -19,6 +19,7 @@
     "vue-feather-icons": "^5.1.0",
     "vue-meta": "^2.4.0",
     "vue-mixpanel": "^2.0.0",
+    "vue-number-animation": "^1.1.1",
     "vue-router": "^3.2.0",
     "vue-spinkit": "^2.0.0",
     "vue-toast-notification": "^0.6.2",
