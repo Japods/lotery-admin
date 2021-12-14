@@ -38,18 +38,23 @@
       </div>
       <div class="filters relative flex mt-5">
         <!-- <SearchComponent></SearchComponent> -->
-        <SelectComponent
-          class="ml-5"
-          :type="'status'"
-          :label="'Estatus'"
-          @sendValue="status = $event"
-        ></SelectComponent>
-        <SelectComponent
-          :type="'type'"
-          class="ml-5"
-          :label="'Tipo'"
-          @sendValue="type = $event"
-        ></SelectComponent>
+        <div class="flex">
+          <SelectComponent
+            class="ml-5"
+            :type="'status'"
+            :label="'Estatus'"
+            @sendValue="status = $event"
+          ></SelectComponent>
+          <SelectComponent
+            :type="'type'"
+            class="ml-5"
+            :label="'Tipo'"
+            @sendValue="type = $event"
+          ></SelectComponent>
+        </div>
+        <div class="refresh" @click="getTransactions">
+          <RefreshCcwIcon></RefreshCcwIcon>
+        </div>
         <!-- <div class="button-search mt-8" @click="getTransactions" align="center">
           Buscar
         </div> -->
@@ -131,7 +136,10 @@
             <!-- Retiro -->
             <td align="center" v-if="status === 0" class="cursor-pointer">
               <div class="flex actions-flex">
-                <EyeIcon v-if="type === 0" @click.prevent="openModal(element)"></EyeIcon>
+                <EyeIcon
+                  v-if="type === 0"
+                  @click.prevent="openModal(element)"
+                ></EyeIcon>
                 <CheckIcon
                   v-if="status === 0"
                   class="count_aprove"
@@ -160,7 +168,12 @@
 <script>
 import showNotification from "@/mixins/Notification";
 import { mapGetters } from "vuex";
-import { EyeIcon, CheckIcon, XCircleIcon } from "vue-feather-icons";
+import {
+  EyeIcon,
+  CheckIcon,
+  XCircleIcon,
+  RefreshCcwIcon,
+} from "vue-feather-icons";
 import SelectComponent from "@/components/SelectComponent/SelectComponent.vue";
 import EmptyState from "@/components/EmptyState/EmptyState.vue";
 import ModalTransactions from "@/components/ModalTransactions/ModalTransactions.vue";
@@ -173,6 +186,7 @@ export default {
     EmptyState,
     ModalTransactions,
     XCircleIcon,
+    RefreshCcwIcon,
   },
   data: function () {
     return {
@@ -357,8 +371,8 @@ thead {
 
 .filters {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-start;
 }
 
 .count {
@@ -380,5 +394,15 @@ thead {
 .actions-flex {
   align-items: center;
   justify-content: space-evenly;
+}
+
+.refresh {
+  height: 100%;
+  background: linear-gradient(90deg, #fda632 19.24%, #f88b24 44.06%);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-right: 20px;
+  cursor: pointer;
 }
 </style>
