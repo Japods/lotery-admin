@@ -12,8 +12,7 @@
         :label="'RUT-RIF-CI'"
         :placeholder="'Introduzca su identificacion...'"
         :type="'text'"
-        :disabled="true"
-        :value="GET_IDENTIFICATION"
+        :value="ci"
       ></Input>
       <Input
         :label="'Numero de Telefono:'"
@@ -41,6 +40,7 @@
         class="mt-16"
         :text="'Crear transaccion de retiro'"
         @action="createTransaction"
+        :disabled="disabled"
       ></Button>
       <div
         class="mt-5 white w-full cursor-pointer"
@@ -73,19 +73,31 @@ export default {
       total_matchs: [],
       email: "",
       name: "",
+      ci: "",
       bank: "",
       phone_number: "",
       method_selected: 2,
       userinfo: {},
+      disabled: false,
     };
   },
   mounted() {},
   methods: {
     createTransaction() {
+      if (
+        this.bank === "" ||
+        this.ci === "" ||
+        this.user === "" ||
+        this.phone_number === ""
+      ) {
+        return this.showNotification("Hay campos vacios");
+      }
+
+      this.disabled = true;
       const template = {
         token: this.$store.state.auth.token,
         bank: this.bank,
-        ci: this.GET_IDENTIFICATION,
+        ci: this.ci,
         user: this.GET_IDENTIFICATION,
         phone_number: this.phone_number,
         game_id: this.GET_REWARD_INFO.game._id,

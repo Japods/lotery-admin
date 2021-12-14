@@ -3,7 +3,12 @@
     v-ripple
     @click="action()"
     @mouseover="over()"
-    :class="[btn, size, 'flex mx-auto justify-center items-center']"
+    :class="[
+      btn,
+      size,
+      'flex mx-auto justify-center items-center',
+      disabled ? 'disabled' : '',
+    ]"
   >
     {{ text }}
   </button>
@@ -14,23 +19,27 @@ export default {
   props: {
     btn: {
       type: String,
-      default: 'primary'
+      default: "primary",
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
     text: {},
     size: {
       type: String,
-      default: 'sm'
-    }
+      default: "sm",
+    },
   },
   methods: {
-    action () {
-      this.$emit('action')
+    action() {
+      this.$emit("action");
     },
-    over () {
-      this.$emit('over')
-    }
-  }
-}
+    over() {
+      this.$emit("over");
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -65,5 +74,10 @@ button {
 
 .transparent {
   background: transparent;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 </style>

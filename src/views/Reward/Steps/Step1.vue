@@ -84,10 +84,10 @@
       class="mt-20"
       @action="setWinner"
       :text="'Verificar recompensas'"
+      :disabled="disabled"
     ></Button>
   </div>
 </template>
-
 
 <script>
 import Input from "@/components/Input/Input.vue";
@@ -111,12 +111,19 @@ export default {
       number_6: "",
       number_7: "",
       seven: [],
+      disabled: false,
       step: 0,
       template: {},
     };
   },
   methods: {
     setWinner() {
+      if (this.indetification === "") {
+        return this.showNotification("Debe ingresar una identificacion");
+      }
+
+      this.disabled = true;
+
       this.$emit("loadingTrue");
       if (
         Number(this.number_1) > 49 ||
