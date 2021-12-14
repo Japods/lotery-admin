@@ -2,9 +2,9 @@
   <div class="gold-container" id="awards">
     <div class="view-content flex-col home-content my-12" align="center">
       <div class="title">
-        <span class="title-awards">Premios del sorteo</span> <br />
+        <span class="title-awards">Informacion de sorteo</span> <br />
         <span class="subtitle-awards"
-          >Puedes ganar 7 premios segun la cantidad de asiertos en tus
+          >Puedes ganar diferentes premios segun la cantidad de aciertos en tus
           tickets</span
         >
       </div>
@@ -37,33 +37,33 @@ export default {
     return {
       items: [
         {
+          id: 0,
+          title:
+            "Cada token cuesta 0.1$ y un ticket de participacion tiene un costo de 10 Tokens",
+        },
+        {
           id: 1,
           title:
-            "El premio se divide entre los ganadores existentes segun los asciertos",
+            "El premio se divide entre los ganadores existentes segun los aciertos",
         },
         {
           id: 2,
-          title: "Mientras mas numeros aciertes mayor es el premio en Tokens",
+          title: "Mientras mas numeros aciertes mayor es el premio",
         },
         {
           id: 3,
           title:
-            "Pudes generar cuantos tickets quieras, para aumentar tus probabilidades de ganar",
+            "Pudes generar cuantos tickets prefieras para aumentar tus probabilidades de ganar",
         },
         {
           id: 4,
           title:
-            "No hay un factor de orden en los numeros seleccionados. Mucho mas sencillo de ganar!",
+            "El orden de los numeros del ticket es relevante solo en el septimo numero",
         },
         {
           id: 5,
           title:
-            "Si no hay ganadores el premio se va acumulando hasta que un ganador sea el afortunado dando asi el reinicio del pote!!",
-        },
-        {
-          id: 6,
-          title:
-            "Si no hay ganadores el premio se va acumulando hasta que un ganador sea el afortunado dando asi el reinicio del pote!!",
+            "Los premios se acumulan e incrementan permanentemente con la compra de cada ticket, cuando un premio es reclamado vuelve a su valor inicial",
         },
       ],
     };

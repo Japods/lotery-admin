@@ -8,7 +8,7 @@
     <div class="items hidden lg:flex mt-10">
       <div class="w-1/2 flex container-text" align="left">
         <div class="ball">1</div>
-        <div class="">
+        <div class="pl-6 flex flex-1 flex-col">
           <span class="title-step">Compra Tokens</span>
           <div>
             Recarga tu wallet a traves de pago movil o Binance rapidamente!
@@ -25,10 +25,11 @@
       </div>
       <div class="w-1/2 flex container-text" align="left">
         <div class="ball">2</div>
-        <div class="">
+        <div class="pl-6 flex flex-1 flex-col">
           <span class="title-step">Arma tu tickets</span>
           <div>
-            Recarga tu wallet a traves de pago movil o Binance rapidamente!
+            Seleciona 6 numeros de tu preferencifa entre el 1 y el 49 junto a un
+            septimo numero entre 1 y el 99
           </div>
         </div>
       </div>
@@ -36,7 +37,7 @@
     <div class="items hidden lg:flex mt-10">
       <div class="w-1/2 flex container-text" align="left">
         <div class="ball">3</div>
-        <div class="">
+        <div class="pl-6 flex flex-1 flex-col">
           <span class="title-step">Espera los resultados</span>
           <div>
             Todos los sabados a las 8:00pm Estaremos dando el resultado del
@@ -54,14 +55,14 @@
       </div>
       <div class="w-1/2 flex container-text" align="left">
         <div class="ball">4</div>
-        <div class="">
+        <div class="pl-6 flex flex-1 flex-col">
           <span class="title-step">Retira tus tokens</span>
           <div>Retira tus tokens cuando quieras y hacia donde quieras</div>
         </div>
       </div>
     </div>
-    <div class="title-landing lg:hidden block">¿ Como jugar ?</div>
-    <div class="lg:hidden block">
+    <div class="lg:hidden block my-auto pb-24">
+      <div class="title-landing lg:hidden block">¿ Como jugar ?</div>
       <Carousel :loop="true" :autoplay="true" class="mt-24 w-full" :perPage="1">
         <Slide
           v-for="(slide, index) in sliders"
@@ -151,8 +152,8 @@ export default {
 .ball {
   box-shadow: inset 0px 6px 10px rgb(56 44 44 / 35%);
   background: white;
-  width: 41.57px;
-  height: 39.3px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   color: #1b1454;
   font-weight: bold;

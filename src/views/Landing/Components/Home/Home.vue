@@ -21,7 +21,11 @@
       />
       <h1 class="title-landing">Registrate y gana todas las semanas</h1>
       <br />
-      <Button class="mt-10" :text="'Registrate ahora'"></Button>
+      <Button
+        @action="goToApp()"
+        class="mt-10"
+        :text="'Registrate ahora'"
+      ></Button>
     </div>
     <div
       class="
@@ -59,7 +63,11 @@
         alt=""
         width="250"
       />
-      <Button class="mt-10" :text="'Registrate ahora'"></Button>
+      <Button
+        @action="goToApp()"
+        class="mt-10"
+        :text="'Registrate ahora'"
+      ></Button>
     </div>
   </div>
 </template>
@@ -69,6 +77,11 @@ import Button from "@/components/Button/Button.vue";
 export default {
   components: {
     Button,
+  },
+  methods: {
+    goToApp() {
+      window.open("https://app.sevenplay.io", "_blank");
+    },
   },
 };
 </script>
