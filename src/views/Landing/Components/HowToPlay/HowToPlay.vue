@@ -28,7 +28,7 @@
         <div class="pl-6 flex flex-1 flex-col">
           <span class="title-step">Arma tu tickets</span>
           <div>
-            Seleciona 6 numeros de tu preferencifa entre el 1 y el 49 junto a un
+            Seleciona 6 numeros de tu preferencia entre el 1 y el 49 junto a un
             septimo numero entre 1 y el 99
           </div>
         </div>
